@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+//const nodemailer = require('nodemailer');
 
 const connectDb = require('./db.js');
 require('dotenv').config();
@@ -32,7 +33,37 @@ app.use('/api/v1/rides', rideRoute);
 app.use('/api/v1/ride-requests', rideRequestRoute);  
 //app.use('/api/v1/clients', usersRoute);
 
+//===================================
+ /* app.use('/', (req,resp,next)=>{
+ resp.send('<h1>Server works</h1>');
+  })*/
+ 
+  //===================================
 
+  /*var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'youremail@gmail.com',
+      pass: 'yourpassword'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'youremail@gmail.com',
+    to: 'myfriend@yahoo.com',
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!'
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });*/
 
 
 connectDb()
@@ -43,9 +74,4 @@ connectDb()
     })
     .catch(err =>console.log(err));
 
-  //===================================
- /* app.use('/', (req,resp,next)=>{
- resp.send('<h1>Server works</h1>');
-  })*/
- 
-  //===================================
+  
